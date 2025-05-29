@@ -18,16 +18,20 @@ def dijkstra(grafo, inicio):
                 distancias[vecino] = distancia
                 heapq.heappush(cola, (distancia, vecino))
 
-        return distancias
+    return distancias
     
-    grafo = {
+grafo = {
         'A': {'B': 1, 'C': 4},
         'B': {'A': 1, 'C': 2, 'D': 5},
         'C': {'A': 4, 'B': 2, 'D': 1},
         'D': {'B': 5, 'C': 1}
-    }
+}
 
-    resultado = dijkstra(grafo, 'A')
-    print("Distancias desde el nodo A:")
-    for nodo, distancia in resultado.items():
-        print(f"Distancia a {nodo}: {distancia}")
+resultado = dijkstra(grafo, 'A')
+print("Distancias desde el nodo A:")
+for nodo, distancia in resultado.items():
+    print(f"Distancia a {nodo}: {distancia}")
+
+#Solo la distancia de A a B
+resultado_ab = dijkstra(grafo, 'A')
+print(f"\nDistancia de A a B: {resultado_ab['B']}")
